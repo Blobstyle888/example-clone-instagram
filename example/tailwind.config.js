@@ -3,15 +3,25 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
-      sm: "480px",
+      sm: "501px",
       md: "768px",
       lg: "975px",
       xl: "1440px",
     },
-    extend: {},
+    extend: {
+      height: {
+        sm: "8px",
+        md: "16px",
+        lg: "24px",
+        xl: "48px",
+        xxl: "54px",
+      },
+    },
   },
   variants: {
-    extend: {},
+    extend: {
+      margin: ["first", "last"],
+    },
   },
   plugins: [],
 };

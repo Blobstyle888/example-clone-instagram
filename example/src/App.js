@@ -1,90 +1,408 @@
-import './index.css';
-import logo from "./logo.png";
+/* eslint-disable jsx-a11y/img-redundant-alt */
+import "./index.css";
+import logo from "./images/logo.png";
+import profileIcon from "./images/profile.jpg";
+import pexels_1 from "./images/pexels1.jpg";
+
+import { ReactComponent as Home } from "./images/home.svg";
+import { ReactComponent as Inbox } from "./images/inbox.svg";
+import { ReactComponent as Explore } from "./images/explore.svg";
+import { ReactComponent as Activity } from "./images/activity.svg";
+import { ReactComponent as Comment } from "./images/comment.svg";
+import { ReactComponent as Emo } from "./images/emo.svg";
+import { ReactComponent as Bookmark } from "./images/bookmark.svg";
+
+import HorizontalScroll from "react-scroll-horizontal";
 
 function App() {
-  return (
-    // Navbar
-    <nav className="bg-white shadow-sm border-b-2">
-      <div className="max-w-screen-lg mx-auto px-4 h-14 flex flex-row items-center justify-between">
-        {/* Logo */}
-        <img src={logo} />
-        {/* Search input */}
-        <input
-          type="text"
-          placeholder="search"
-          className="w-56 p-1 rounded-sm border border-grey-600 focus:border-blue-500"
-        />
-        {/* menu & profile */}
-        <ul className="flex space-x-5">
-          <li>
-            <svg
-              aria-label="Home"
-              class="_8-yf5 "
-              fill="#262626"
-              height="22"
-              role="img"
-              viewBox="0 0 48 48"
-              width="22"
-            >
-              <path d="M45.5 48H30.1c-.8 0-1.5-.7-1.5-1.5V34.2c0-2.6-2.1-4.6-4.6-4.6s-4.6 2.1-4.6 4.6v12.3c0 .8-.7 1.5-1.5 1.5H2.5c-.8 0-1.5-.7-1.5-1.5V23c0-.4.2-.8.4-1.1L22.9.4c.6-.6 1.6-.6 2.1 0l21.5 21.5c.3.3.4.7.4 1.1v23.5c.1.8-.6 1.5-1.4 1.5z"></path>
-            </svg>
-          </li>
-          <li>
-            <svg
-              aria-label="Direct"
-              class="_8-yf5 "
-              fill="#262626"
-              height="22"
-              role="img"
-              viewBox="0 0 48 48"
-              width="22"
-            >
-              <path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path>
-            </svg>
-          </li>
-          <li>
-            <svg
-              aria-label="Find People"
-              class="_8-yf5 "
-              fill="#262626"
-              height="22"
-              role="img"
-              viewBox="0 0 48 48"
-              width="22"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M24 0C10.8 0 0 10.8 0 24s10.8 24 24 24 24-10.8 24-24S37.2 0 24 0zm0 45C12.4 45 3 35.6 3 24S12.4 3 24 3s21 9.4 21 21-9.4 21-21 21zm10.2-33.2l-14.8 7c-.3.1-.6.4-.7.7l-7 14.8c-.3.6-.2 1.3.3 1.7.3.3.7.4 1.1.4.2 0 .4 0 .6-.1l14.8-7c.3-.1.6-.4.7-.7l7-14.8c.3-.6.2-1.3-.3-1.7-.4-.5-1.1-.6-1.7-.3zm-7.4 15l-5.5-5.5 10.5-5-5 10.5z"
-                fill-rule="evenodd"
-              ></path>
-            </svg>
-          </li>
-          <li>
-            <svg
-              aria-label="Activity Feed"
-              class="_8-yf5 "
-              fill="#262626"
-              height="22"
-              role="img"
-              viewBox="0 0 48 48"
-              width="22"
-            >
-              <path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
-            </svg>
-          </li>
-          <li>
-            <img
-              width="22"
-              class="rounded-full border border-gray-100 shadow-sm"
-              src="https://randomuser.me/api/portraits/women/81.jpg"
-              alt="user image" />
-          </li>
-        </ul>
-      </div>
-    </nav>
+  let accountName = "Iris Fernandez";
+  let accountName1 = "Iris Fernandez";
+  if (accountName.length > 10) {
+    accountName = accountName.substring(0, 10) + "...";
+  }
 
-    // Content Left
-    // Conten Right
+  return (
+    <>
+      {/* Navbar */}
+      <nav className="bg-white shadow-sm border-b-2">
+        <div className="max-w-screen-lg mx-auto px-4 h-xxl flex flex-row items-center justify-between">
+          {/* Logo */}
+          <img src={logo} />
+          {/* Search input */}
+          <div className="hidden sm:block">
+            <input
+              type="text"
+              placeholder="Search"
+              className="w-54 h-lg p-1 rounded-sm border border-grey-600 focus:border-blue-500"
+            />
+          </div>
+          {/* menu & profile */}
+          <ul className="flex space-x-4">
+            <li>
+              <Home className="icon" />
+            </li>
+            <li>
+              <Inbox className="icon" />
+            </li>
+            <li>
+              <Explore className="icon" />
+            </li>
+            <li>
+              <Activity className="icon" />
+            </li>
+            <li>
+              <img
+                width="22"
+                class="rounded-full border border-gray-100 shadow-sm"
+                src={profileIcon}
+                alt="user image"
+              />
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <main>
+        <section className="max-w-screen-lg mx-auto px-4 pt-8">
+          <div className="grid grid-cols-3 gap-4">
+            <div className="col-span-3 lg:col-span-2 xl:col-span-2">
+              <div className="rounded border border-grey-600 py-4 mb-6">
+                <div className="flex stories">
+                  <HorizontalScroll className="scroll" reverseScroll={true}>
+                    <div className="flex flex-col mx-4">
+                      <div className="w-16 storyBorder">
+                        <img
+                          className="rounded-full border-2 border-white block"
+                          src={profileIcon}
+                          alt="user image"
+                        />
+                      </div>
+                      <span className="text-xs text-gray-600">
+                        {accountName}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col mx-4">
+                      <div className="w-16 storyBorder">
+                        <img
+                          className="rounded-full border-2 border-white block"
+                          src={profileIcon}
+                          alt="user image"
+                        />
+                      </div>
+                      <span className="text-xs text-gray-600">
+                        {accountName}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col mx-4">
+                      <div className="w-16 storyBorder">
+                        <img
+                          className="rounded-full border-2 border-white block"
+                          src={profileIcon}
+                          alt="user image"
+                        />
+                      </div>
+                      <span className="text-xs text-gray-600">
+                        {accountName}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col mx-4">
+                      <div className="w-16 storyBorder">
+                        <img
+                          className="rounded-full border-2 border-white block"
+                          src={profileIcon}
+                          alt="user image"
+                        />
+                      </div>
+                      <span className="text-xs text-gray-600">
+                        {accountName}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col mx-4">
+                      <div className="w-16 storyBorder">
+                        <img
+                          className="rounded-full border-2 border-white block"
+                          src={profileIcon}
+                          alt="user image"
+                        />
+                      </div>
+                      <span className="text-xs text-gray-600">
+                        {accountName}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col mx-4">
+                      <div className="w-16 storyBorder">
+                        <img
+                          className="rounded-full border-2 border-white block"
+                          src={profileIcon}
+                          alt="user image"
+                        />
+                      </div>
+                      <span className="text-xs text-gray-600">
+                        {accountName}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col mx-4">
+                      <div className="w-16 storyBorder">
+                        <img
+                          className="rounded-full border-2 border-white block"
+                          src={profileIcon}
+                          alt="user image"
+                        />
+                      </div>
+                      <span className="text-xs text-gray-600">
+                        {accountName}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col mx-4">
+                      <div className="w-16 storyBorder">
+                        <img
+                          className="rounded-full border-2 border-white block"
+                          src={profileIcon}
+                          alt="user image"
+                        />
+                      </div>
+                      <span className="text-xs text-gray-600">
+                        {accountName}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col mx-4">
+                      <div className="w-16 storyBorder">
+                        <img
+                          className="rounded-full border-2 border-white block"
+                          src={profileIcon}
+                          alt="user image"
+                        />
+                      </div>
+                      <span className="text-xs text-gray-600">
+                        {accountName}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col mx-4">
+                      <div className="w-16 storyBorder">
+                        <img
+                          className="rounded-full border-2 border-white block"
+                          src={profileIcon}
+                          alt="user image"
+                        />
+                      </div>
+                      <span className="text-xs text-gray-600">
+                        {accountName}
+                      </span>
+                    </div>
+                  </HorizontalScroll>
+                </div>
+              </div>
+              <article className="rounded border border-grey-600 mb-6">
+                {/* Header */}
+                <div className="flex flex-row items-center content-center p-4">
+                  <img
+                    className="w-8 rounded-full border-2 border-white block"
+                    src={profileIcon}
+                    alt="user image"
+                  />
+                  <div className="flex w-full justify-between">
+                    <div className="flex flex-col ml-4">
+                      <span className="font-medium text-sm text-black">
+                        {accountName1}
+                      </span>
+                      <span className="text-xs text-gray-500">
+                        New to Instagram
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      className="font-medium text-xs text-black p-2"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                {/* Image */}
+                <div>
+                  <img className="w-full block" src={pexels_1} />
+                </div>
+                <div className="flex flex-row px-4 justify-between">
+                  <div className="flex flex-row">
+                    <div className="p-2">
+                      <Activity />
+                    </div>
+                    <div className="p-2">
+                      <Comment />
+                    </div>
+                    <div className="p-2">
+                      <Inbox />
+                    </div>
+                  </div>
+                  <div className="p-2">
+                    <Bookmark />
+                  </div>
+                </div>
+                <div className="flex flex-col">
+                  <div className="mb-2 px-4">
+                    <a href="#" className="font-bold text-sm text-black">
+                      157,918 likes
+                    </a>
+                  </div>
+                  <div className="flex flex-col px-4">
+                    <div className="flex flex-row">
+                      <a
+                        href="#"
+                        className="font-bold text-sm text-black pr-2 hover:underline"
+                      >
+                        Iris Fernandez
+                      </a>
+
+                      <span className="text-sm text-black">
+                        by Cole Sidney Designs
+                      </span>
+                    </div>
+                    <a
+                      href="#"
+                      className="text-sm text-gray-500 hover:underline"
+                    >
+                      View All 12 comments
+                    </a>
+                    <div className="flex flex-col pt-2">
+                      <div className="flex flex-row justify-between items-center">
+                        <div className="">
+                          <a
+                            href="#"
+                            className="font-bold text-xs text-black pr-2 hover:underline"
+                          >
+                            Iris Fernandez
+                          </a>
+                          <span className="text-xs text-black">Ohh well.</span>
+                        </div>
+                        <button>
+                          <Activity className="p-1" />
+                        </button>
+                      </div>
+                      <div className="flex flex-row justify-between">
+                        <div className="">
+                          <a
+                            href="#"
+                            className="font-bold text-xs text-black pr-2 hover:underline"
+                          >
+                            Iris Fernandez
+                          </a>
+                          <span className="text-xs text-black">Good job.</span>
+                        </div>
+                        <button>
+                          <Activity className="p-1" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pl-4 mb-2">
+                    <span className="text-xs text-gray-500">19 HOURS AGO</span>
+                  </div>
+
+                  <div className="flex flex-row border-t-2 border-gray-100 py-2 px-4 mt-2">
+                    <div className="pt-2 pb-2 pr-4">
+                      <button type="button">
+                        <Emo />
+                      </button>
+                    </div>
+
+                    <input
+                      className="w-full mr-4"
+                      type="text"
+                      placeholder="Add a comment..."
+                    />
+                    <button
+                      type="button"
+                      className="font-bold text-sm text-blue-500"
+                    >
+                      Post
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div className="hidden lg:block lg:col-span-1 ml-3">
+              {/* Profile */}
+              <div className="flex flex-row items-center content-center justify-between mt-4">
+                <img
+                  className="w-16 rounded-full border-2 border-white block"
+                  src={profileIcon}
+                  alt="user image"
+                />
+                <div className="flex w-full justify-between">
+                  <div className="flex flex-col ml-4">
+                    <span className="font-medium text-sm text-black">
+                      {accountName1}
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {accountName1}
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    className="font-medium text-xs text-blue-500 p-2"
+                  >
+                    Switch
+                  </button>
+                </div>
+              </div>
+              {/* Suggestions For You */}
+              <div className="mt-7">
+                <div className="flex flex-row items-center content-center justify-between">
+                  <span className="font-bold text-gray-500">
+                    Suggestions For You
+                  </span>
+                  <button
+                    type="button"
+                    className="font-medium text-xs text-gray-500 p-2"
+                  >
+                    See All
+                  </button>
+                </div>
+
+                <div className="flex flex-row items-center content-center">
+                  <img
+                    className="w-8 rounded-full border-2 border-white block"
+                    src={profileIcon}
+                    alt="user image"
+                  />
+                  <div className="flex w-full justify-between">
+                    <div className="flex flex-col ml-4">
+                      <span className="font-medium text-sm text-black">
+                        {accountName1}
+                      </span>
+                      <span className="text-xs text-gray-500">
+                        New to Instagram
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      className="font-medium text-xs text-blue-500 p-2"
+                    >
+                      Follow
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
   );
 }
 

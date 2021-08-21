@@ -1,0 +1,6 @@
+
+.storyBorder {
+  padding: 2px;
+ background: linear-gradient(200deg, rgba(218,51,148,1) 25%, rgba(224,60,103,1) 50%, rgba(243,117,59,1) 75%, rgba(249,155,74,1) 100%);
+  border-radius: 50%;
+}
