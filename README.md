@@ -4,6 +4,7 @@
 * tailwindcss (CSS framework)
 * react-scroll-horizontal (Library) 
 ### Resources
+* https://jsonplaceholder.typicode.com/
 * https://www.randomlists.com/random-names
 * https://randomuser.me/photos
 * https://www.pexels.com/search/landscape/
